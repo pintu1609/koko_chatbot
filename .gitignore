@@ -1,0 +1,63 @@
+.DS_Store
+# ======================
+# OS / Editor files
+# ======================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ======================
+# Environment variables
+# ======================
+.env
+.env.local
+.env.*.local
+
+# ======================
+# Node dependencies
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ======================
+# Backend (Node / Express)
+# ======================
+
+Server/node_modules/
+Server/.env
+
+# ======================
+# Frontend (Next.js)
+# ======================
+Client/node_modules/
+Client/.next/
+Client/out/
+Client/.env
+Client/.env.local
+
+# ======================
+# Build outputs
+# ======================
+dist/
+build/
+
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+
+# ======================
+# Coverage
+# ======================
+coverage/
+
+# ======================
+# Temporary files
+# ======================
+*.swp
+*.tmp
