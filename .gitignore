@@ -29,11 +29,13 @@ pnpm-debug.log*
 
 Server/node_modules/
 Server/.env
+Server/package-lock.json/
 
 # ======================
 # Frontend (Next.js)
 # ======================
 Client/node_modules/
+Client/package-lock.json/
 Client/.next/
 Client/out/
 Client/.env
