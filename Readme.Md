@@ -1,11 +1,11 @@
-# 🐾 Veterinary Chatbot SDK (MERN Stack)
+# Veterinary Chatbot SDK (MERN Stack)
 
 A website-integrable chatbot SDK that answers **veterinary-related questions** and supports **conversational veterinary appointment booking**.  
 The chatbot is designed as a **plug-and-play widget** that can be embedded into any website and communicates with a Node.js backend powered by **Google Gemini API**.
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project implements a veterinary chatbot that:
 - Answers **generic pet health questions** using AI
@@ -17,7 +17,7 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-## 🎯 Objectives Achieved
+## Objectives Achieved
 
 - ✅ Plug-and-play chatbot UI
 - ✅ AI-powered veterinary Q&A (Gemini)
@@ -28,7 +28,7 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React.js** (created using Vite)
@@ -51,9 +51,9 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-## 📦 Features
+## Features
 
-### 1️⃣ Chatbot SDK (Embeddable Widget)
+### Chatbot SDK (Embeddable Widget)
 
 - Floating chatbot widget (bottom-right)
 - Expandable / collapsible UI
@@ -63,7 +63,7 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-### 2️⃣ Chatbot UI
+### Chatbot UI
 
 - Floating widget
 - Chat history view
@@ -75,7 +75,7 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-### 3️⃣ AI-Powered Veterinary Q&A
+### AI-Powered Veterinary Q&A
 
 - Uses **Google Gemini API**
 - System prompt restricts answers to **veterinary topics only**
@@ -89,7 +89,7 @@ The focus of this assignment is **system design, clean architecture, maintainabi
 
 ---
 
-### 4️⃣ Conversational Appointment Booking
+### Conversational Appointment Booking
 
 The chatbot automatically detects booking intent such as:
 - “I want to book an appointment”
@@ -109,7 +109,7 @@ The chatbot automatically detects booking intent such as:
 
 ---
 
-### 5️⃣ Data Storage (MongoDB)
+### Data Storage (MongoDB)
 
 #### Conversations
 - Session ID
@@ -126,7 +126,7 @@ The chatbot automatically detects booking intent such as:
 
 ---
 
-## 🔌 Backend APIs
+## Backend APIs
 
 | Method | Endpoint | Description |
 |------|--------|------------|
@@ -140,15 +140,15 @@ APIs follow proper **separation of concerns**:
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
-### 1️⃣ Clone Repository
+### Clone Repository
 ```bash
 git clone <your-repo-url>
 cd <repo-name>
