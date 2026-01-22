@@ -1,0 +1,8 @@
+module.exports.BOOKING_STATES = {
+  IDLE: "IDLE",
+  OWNER: "OWNER",
+  PET: "PET",
+  PHONE: "PHONE",
+  DATETIME: "DATETIME",
+  CONFIRM: "CONFIRM",
+};

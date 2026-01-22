@@ -1,51 +1,41 @@
-
-
-
 const Conversation = require("../model/conversation");
-const Appointment = require("../model/appointment");
-const { askGemini } = require("../helper/gemini");
+const { BOOKING_STATES } = require("../helper//bookingStates");
 const { detectAppointmentIntent } = require("./appointment");
 const { handleBookingFlow } = require("../helper/bookingFlow");
+const { askGemini } = require("../helper/gemini");
 
-exports.chatService = async (sessionId, message ) => {
-
+exports.chatService = async (sessionId, message) => {
   let convo = await Conversation.findOne({ sessionId });
+
   if (!convo) {
     convo = await Conversation.create({
       sessionId,
       messages: [],
-      bookingState: null,
-      bookingData: {}
+      bookingState: BOOKING_STATES.IDLE,
+      bookingData: {},
     });
   }
 
-  convo.messages.push({
-    role: "user",
-    text: message,
-    timestamp: new Date()
-  });
+  convo.messages.push({ role: "user", text: message, timestamp: new Date() });
 
-  // ✅ 1. Handle appointment flow FIRST
-  if (convo.bookingState) {
-    const reply = handleBookingFlow(convo, message);
+  // Booking always has priority
+  if (convo.bookingState !== BOOKING_STATES.IDLE) {
+    const reply = await handleBookingFlow(convo, message);
     convo.messages.push({ role: "bot", text: reply, timestamp: new Date() });
     await convo.save();
-    return  reply;
+    return reply;
   }
 
-  // ✅ 2. Detect new appointment intent
+  // Prevent double booking
   if (detectAppointmentIntent(message)) {
-    convo.bookingState = "ASK_OWNER_NAME";
+    convo.bookingState = BOOKING_STATES.OWNER;
     await convo.save();
     return "Sure! What's your name?";
   }
 
-  // ✅ 3. Normal veterinary AI
+  // AI fallback
   const reply = await askGemini(message);
   convo.messages.push({ role: "bot", text: reply, timestamp: new Date() });
   await convo.save();
-
   return reply;
 };
-
-

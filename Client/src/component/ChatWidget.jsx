@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import { sendMessage } from "../api";
 
-const SESSION_ID = `session_${Date.now()}`;
+// const SESSION_ID = `session_${Date.now()}`;
 
+
+const getSessionId = () => {
+  let id = localStorage.getItem("vet_session_id");
+  if (!id) {
+    id = `session_${Date.now()}`;
+    localStorage.setItem("vet_session_id", id);
+  }
+  return id;
+};
+
+const SESSION_ID = getSessionId();
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -29,6 +40,11 @@ export default function ChatWidget() {
       setLoading(false);
     }
   };
+useEffect(() => {
+  setMessages([
+    { role: "bot", text: "Hi! I can help with pet care or booking a vet visit." }
+  ]);
+}, []);
 
   return (
     <>
